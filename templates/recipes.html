@@ -30,6 +30,10 @@
 <body>
     <h1>All Recipes</h1>
     <a href="/">Go Back</a>
+    <form action="/recipes/search" method="GET">
+        <input type="text" name="q" placeholder="Search recipes...">
+        <button type="submit">Search</button>
+    </form>
     <ul>
         {{range .}}
         <li id="recipe-{{.ID}}">

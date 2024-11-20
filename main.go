@@ -49,6 +49,8 @@ func main() {
 
 	r.GET("/recipes/edit/:id", handlers.EditRecipe)
 
+	r.GET("/recipes/search", handlers.SearchRecipes) // New route for searching recipes
+
 	// Start the server
 	r.Run(":8080")
 }

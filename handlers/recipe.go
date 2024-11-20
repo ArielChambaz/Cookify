@@ -115,3 +115,14 @@ func DeleteRecipe(c *gin.Context) {
 
 	c.Status(http.StatusNoContent)
 }
+
+// Handler to search recipes
+func SearchRecipes(c *gin.Context) {
+	query := c.Query("q")
+	recipes, err := models.SearchRecipes(query)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Error searching recipes: %v", err)
+		return
+	}
+	c.HTML(http.StatusOK, "recipes.html", recipes)
+}

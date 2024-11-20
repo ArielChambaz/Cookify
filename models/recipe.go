@@ -116,3 +116,33 @@ func DeleteRecipe(id int) error {
 	_, err = statement.Exec(id)
 	return err
 }
+
+func SearchRecipes(query string) ([]Recipe, error) {
+	rows, err := db.Query("SELECT id, name, ingredients, steps, image_url, category FROM recipes WHERE name LIKE ? OR ingredients LIKE ? OR category LIKE ?", "%"+query+"%", "%"+query+"%", "%"+query+"%")
+	if err != nil {
+		log.Printf("Error searching recipes: %v", err)
+		return nil, err
+	}
+	defer rows.Close()
+
+	var recipes []Recipe
+	for rows.Next() {
+		var r Recipe
+		var ingredients, steps string
+		err := rows.Scan(&r.ID, &r.Name, &ingredients, &steps, &r.ImageURL, &r.Category)
+		if err != nil {
+			log.Printf("Error scanning recipe: %v", err)
+			return nil, err
+		}
+		r.Ingredients = strings.Split(ingredients, ",")
+		r.Steps = strings.Split(steps, ",")
+		recipes = append(recipes, r)
+	}
+
+	if err = rows.Err(); err != nil {
+		log.Printf("Error iterating over recipes: %v", err)
+		return nil, err
+	}
+
+	return recipes, nil
+}
