@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Recipe</title>
+</head>
+<body>
+    <h1>Edit Recipe</h1>
+    <form action="/api/recipes/{{.ID}}" method="POST">
+        <label for="name">Recipe Name:</label><br>
+        <input type="text" id="name" name="name" value="{{.Name}}" required><br><br>
+
+        <label for="category">Category:</label><br>
+        <input type="text" id="category" name="category" value="{{.Category}}"><br><br>
+
+        <label for="ingredients">Ingredients (comma-separated):</label><br>
+        <textarea id="ingredients" name="ingredients" rows="4" required>{{join .Ingredients ", "}}</textarea><br><br>
+
+        <label for="steps">Steps (comma-separated):</label><br>
+        <textarea id="steps" name="steps" rows="4" required>{{join .Steps ", "}}</textarea><br><br>
+
+        <label for="image_url">Image URL:</label><br>
+        <input type="url" id="image_url" name="image_url" value="{{.ImageURL}}"><br><br>
+
+        <button type="submit">Update Recipe</button>
+    </form>
+    <br>
+    <a href="/">Go Back</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<body>
+    <h1>All Recipes</h1>
+    <a href="/">Go Back</a>
+    <ul>
+        {{range .}}
+        <li>
+            <h3>{{.Name}}</h3>
+            <p>Category: {{.Category}}</p>
+            <p>Ingredients: {{join .Ingredients ", "}}</p>
+            <p>Steps:</p>
+            <ol>
+                {{range .Steps}}
+                <li>{{.}}</li>
+                {{end}}
+            </ol>
+            <img src="{{.ImageURL}}" alt="{{.Name}}" style="max-width: 200px;">
+            <br>
+            <a href="/recipes/edit/{{.ID}}">Edit</a>
+        </li>
+        {{end}}
+    </ul>
+</body>
+</html>
