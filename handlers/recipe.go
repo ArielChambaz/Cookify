@@ -97,3 +97,21 @@ func UpdateRecipe(c *gin.Context) {
 
 	c.Redirect(http.StatusSeeOther, "/recipes")
 }
+
+// Handler to delete a recipe
+func DeleteRecipe(c *gin.Context) {
+	idStr := c.Param("id")
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		c.String(http.StatusBadRequest, "Invalid recipe ID")
+		return
+	}
+
+	err = models.DeleteRecipe(id)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Failed to delete recipe: %v", err)
+		return
+	}
+
+	c.Status(http.StatusNoContent)
+}

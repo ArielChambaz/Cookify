@@ -13,12 +13,10 @@ import (
 func main() {
 	r := gin.Default()
 
-	// Define custom template functions
 	funcMap := template.FuncMap{
-		"join": strings.Join, // Custom "join" function
+		"join": strings.Join,
 	}
 
-	// Load HTML templates and register custom functions
 	r.SetFuncMap(funcMap)
 	r.LoadHTMLGlob("templates/*")
 
@@ -29,6 +27,7 @@ func main() {
 	r.GET("/api/recipes", handlers.GetRecipes)
 	r.POST("/api/recipes", handlers.AddRecipe)
 	r.POST("/api/recipes/:id", handlers.UpdateRecipe)
+	r.DELETE("/api/recipes/:id", handlers.DeleteRecipe)
 
 	// Routes for HTML
 	r.GET("/", func(c *gin.Context) {

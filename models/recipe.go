@@ -107,3 +107,12 @@ func UpdateRecipe(r Recipe) error {
 	_, err = statement.Exec(r.Name, ingredients, steps, r.ImageURL, r.Category, r.ID)
 	return err
 }
+
+func DeleteRecipe(id int) error {
+	statement, err := db.Prepare("DELETE FROM recipes WHERE id = ?")
+	if err != nil {
+		return err
+	}
+	_, err = statement.Exec(id)
+	return err
+}
