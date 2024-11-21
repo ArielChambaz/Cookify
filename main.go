@@ -20,7 +20,6 @@ func main() {
 	r.SetFuncMap(funcMap)
 	r.LoadHTMLGlob("templates/*")
 
-	// Serve static files
 	r.Static("/static", "./static")
 
 	// Routes for the API
@@ -49,7 +48,7 @@ func main() {
 
 	r.GET("/recipes/edit/:id", handlers.EditRecipe)
 
-	r.GET("/recipes/search", handlers.SearchRecipes) // New route for searching recipes
+	r.GET("/recipes/search", handlers.SearchRecipes)
 
 	// Start the server
 	r.Run(":8080")
