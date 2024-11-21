@@ -4,28 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Recipe</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Add a New Recipe</h1>
+<body class="container mt-5">
+    <h1 class="mb-4">Add a New Recipe</h1>
     <form action="/api/recipes" method="POST">
-        <label for="name">Recipe Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+        <div class="form-group">
+            <label for="name">Recipe Name:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
 
-        <label for="category">Category:</label><br>
-        <input type="text" id="category" name="category"><br><br>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" class="form-control">
+        </div>
 
-        <label for="ingredients">Ingredients (comma-separated):</label><br>
-        <textarea id="ingredients" name="ingredients" rows="4" required></textarea><br><br>
+        <div class="form-group">
+            <label for="ingredients">Ingredients (comma-separated):</label>
+            <textarea id="ingredients" name="ingredients" rows="4" class="form-control" required></textarea>
+        </div>
 
-        <label for="steps">Steps (comma-separated):</label><br>
-        <textarea id="steps" name="steps" rows="4" required></textarea><br><br>
+        <div class="form-group">
+            <label for="steps">Steps (comma-separated):</label>
+            <textarea id="steps" name="steps" rows="4" class="form-control" required></textarea>
+        </div>
 
-        <label for="image_url">Image URL:</label><br>
-        <input type="url" id="image_url" name="image_url"><br><br>
+        <div class="form-group">
+            <label for="image_url">Image URL:</label>
+            <input type="url" id="image_url" name="image_url" class="form-control">
+        </div>
 
-        <button type="submit">Add Recipe</button>
+        <button type="submit" class="btn btn-primary">Add Recipe</button>
     </form>
     <br>
-    <a href="/">Go Back</a>
+    <a href="/" class="btn btn-secondary">Go Back</a>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
