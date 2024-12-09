@@ -2,6 +2,10 @@
 
 **Cookify** is a web application for managing cooking recipes. It allows users to add, edit, delete, and view recipes. The application is built using the Gin framework for Go.
 
+## Contributor
+
+This project has been done by Felly Florenza Willianto and Ariel Chambaz
+
 ---
 
 ## Installation
