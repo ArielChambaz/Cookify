@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Recipe</title>
+    <title>View Recipe</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -14,7 +14,6 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: white;
         }
 
         .navbar {
@@ -39,6 +38,10 @@
             margin-right: 15px;
         }
 
+        .navbar-nav2 {
+            display: flex;
+        }
+
         .navbar-nav2 a {
             font-size: 18px;
             color: black;
@@ -51,17 +54,11 @@
         }
 
         .container {
-            margin-top: 100px; /* Add margin to avoid overlap with the fixed navbar */
+            margin-top: 80px;
         }
 
-        .btn-primary {
-            background-color: #6f42c1;
-            border-color: #6f42c1;
-        }
-
-        .btn-primary:hover {
-            background-color: #5a2a8c;
-            border-color: #5a2a8c;
+        .title {
+            color: white;
         }
     </style>
 </head>
@@ -77,35 +74,23 @@
     </header>
 
     <div class="container">
-        <h1 class="mb-4">Tell us your secret Recipe!</h1>
-        <form action="/api/recipes" method="POST">
-            <div class="form-group">
-                <label for="name">Recipe Name :</label>
-                <input type="text" id="name" name="name" class="form-control" required>
+        <div class="title">
+            <h1 class="mt-5"><b>Recipe Details</b></h1>
+        </div>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">{{.Name}}</h2>
+                <p class="card-text"><strong>Category:</strong> {{.Category}}</p>
+                <p class="card-text"><strong>Ingredients:</strong> {{join .Ingredients ", "}}</p>
+                <p class="card-text"><strong>Steps:</strong></p>
+                <ol class="card-text">
+                    {{range .Steps}}
+                    <li>{{.}}</li>
+                    {{end}}
+                </ol>
+                <a href="/recipes" class="btn btn-secondary mt-3">Back to Recipes</a>
             </div>
-
-            <div class="form-group">
-                <label for="category">Category :</label>
-                <input type="text" id="category" name="category" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label for="ingredients">Ingredients (comma-separated) :</label>
-                <textarea id="ingredients" name="ingredients" rows="4" class="form-control" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="steps">Steps (comma-separated) :</label>
-                <textarea id="steps" name="steps" rows="4" class="form-control" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="image_url">Image URL :</label>
-                <input type="url" id="image_url" name="image_url" class="form-control">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Add Recipe</button>
-        </form>
+        </div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->

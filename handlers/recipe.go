@@ -126,3 +126,14 @@ func SearchRecipes(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "recipes.html", recipes)
 }
+
+// Handler to view a specific recipe by ID
+func ViewRecipe(c *gin.Context) {
+	id := c.Param("id")
+	recipes, err := models.GetRecipeByID(id)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Error fetching recipe: %v", err)
+		return
+	}
+	c.HTML(http.StatusOK, "view.html", recipes)
+}

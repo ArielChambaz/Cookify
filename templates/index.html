@@ -10,7 +10,10 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, black, purple);
+            background:   url('https://i.pinimg.com/736x/38/3a/19/383a199ef53088e465bff4aea8027083.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
         }
 
         .navbar {
@@ -47,42 +50,43 @@
 
         .main-container {
             display: flex;
-            margin-top: 150px; /* Space for fixed navbar */
-            margin-left: 20px;
+            margin-top: 120px; 
+            margin-left: 650px;
 
         }
 
         .content {
-            flex: 1; /* Take available space */
+            flex: 1; 
             text-align: left;
             margin-left : 60px;
         }
 
         .content-text {
-            max-width: 600px;  /* Limit the width */
-            margin-right : 120px;    /* Center the content */
-            padding: 10px;     /* Add some padding for spacing */
-            line-height: 1.5;  /* Improve readability */
+            max-width: 600px;  
+            margin-right : 120px;   
+            padding: 10px;     
+            line-height: 1.5;  
         }
 
         h1 {
             font-size: 3rem;
-            color: white;
+            color: black;
             margin-bottom: 20px;
         }
 
 
         p {
             font-size: 1.2rem;
-            color: white;
+            color: black;
             margin-bottom: 30px;
         }
 
         .btn {
             font-size: 1.5rem;
-            padding: 15px 30px;
+            padding: 15px 45px;
             margin: 10px;
             border-radius: 10px;
+            margin-left : 0 px;
         }
 
         .btn-primary {
@@ -91,7 +95,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #5a379a;
+            background-color: green;
         }
 
         .btn-success {
@@ -100,26 +104,15 @@
         }
 
         .btn-success:hover {
-            background-color: #218838;
+            background-color: purple;
         }
 
-        /* Styling the image container */
-        .image-container {
-            margin-left: 20px;
-            margin-right : 200px; 
-        }
-
-        .image-container img {
-            width: 300px; /* Adjust the size of the image */
-            height: auto;
-            border-radius: 10px;
-        }
 
         /* Rating stars */
         .py-5 {
             padding-top: 3rem;
             padding-bottom: 3rem;
-            color : white;
+            color : black;
         }
         .flex {
             display: flex;
@@ -137,9 +130,9 @@
    
         </div>
         <div class="navbar-nav2">
-            <a href="/#"> Dashboard </a>
-            <a href="/recipes">Recipes</a>
-            <a href="/recipes/add">Add Recipe</a>
+            <a href="/#"> <b> Dashboard </b></a>
+            <a href="/recipes"> <b> Recipes </b> </a>
+            <a href="/recipes/add"> <b> Add Recipe </b> </a>
         </div>
       
     </header>
@@ -147,13 +140,12 @@
     <div class="main-container">
         <!-- Content -->
         <div class="content">
-            <h1>Welcome to Cookify!</h1>
+            <h1><b> Welcome to Cookify!</b></h1>
             <div class="content-text">
                 <p> Easily discover, add, and manage your recipes like magic. Create, organize, and share culinary masterpieces to inspire your next delicious adventure!</p>
             </div>
-            <a href="/recipes" class="btn btn-primary">View Recipes</a> 
-           
-            <a href="/recipes/add" class="btn btn-success">Add Recipes</a>
+            <a href="/recipes" class="btn btn-primary">Search Recipes</a> 
+        
             
             <!-- Star Rating Section -->
             <div class="py-5">
@@ -176,14 +168,9 @@
                     </svg>
                 </div>
             </div>
-            <p class="mt-3 text-sm text-gray-800 dark:text-gray-200">
-                <span class="font-bold">4.8</span> /5 - from 5k reviews
-              </p>
         </div>
        
-        <div class="image-container">
-            <img src="https://handletheheat.com/wp-content/uploads/2018/02/BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg" alt="Gallery Image" class="img-fluid"> 
-        </div>
+       
 
 
     </div>

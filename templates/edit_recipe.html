@@ -4,28 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Recipe</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, black, purple);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            height: 60px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #343a40;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .navbar-nav2 a {
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .navbar-nav2 a:hover {
+            background-color: grey;
+        }
+
+        .container {
+            margin-top: 100px; /* Adjust for navbar */
+        }
+    </style>
 </head>
 <body>
-    <h1>Edit Recipe</h1>
-    <form action="/api/recipes/{{.ID}}" method="POST">
-        <label for="name">Recipe Name:</label><br>
-        <input type="text" id="name" name="name" value="{{.Name}}" required><br><br>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="/" class="navbar-brand">Cookify</a>
+        <div class="navbar-nav2">
+            <a href="/"> <b>Dashboard</b> </a>
+            <a href="/recipes"> <b>Recipes</b> </a>
+            <a href="/recipes/add"> <b>Add Recipe</b> </a>
+        </div>
+    </header>
 
-        <label for="category">Category:</label><br>
-        <input type="text" id="category" name="category" value="{{.Category}}"><br><br>
+    <div class="container">
+        <h1 class="mb-4">Edit Your Recipe</h1>
+        <!-- Edit Recipe Form -->
+        <form action="/api/recipes/{{.ID}}" method="POST">
+            <input type="hidden" name="_method" value="PUT"> <!-- Simulate PUT request -->
+            <div class="form-group">
+                <label for="name">Recipe Name :</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{.Name}}" required>
+            </div>
 
-        <label for="ingredients">Ingredients (comma-separated):</label><br>
-        <textarea id="ingredients" name="ingredients" rows="4" required>{{join .Ingredients ", "}}</textarea><br><br>
+            <div class="form-group">
+                <label for="category">Category :</label>
+                <input type="text" id="category" name="category" class="form-control" value="{{.Category}}">
+            </div>
 
-        <label for="steps">Steps (comma-separated):</label><br>
-        <textarea id="steps" name="steps" rows="4" required>{{join .Steps ", "}}</textarea><br><br>
+            <div class="form-group">
+                <label for="ingredients">Ingredients (comma-separated) :</label>
+                <textarea id="ingredients" name="ingredients" rows="4" class="form-control" required>{{join .Ingredients ", "}}</textarea>
+            </div>
 
-        <label for="image_url">Image URL:</label><br>
-        <input type="url" id="image_url" name="image_url" value="{{.ImageURL}}"><br><br>
+            <div class="form-group">
+                <label for="steps">Steps (comma-separated) :</label>
+                <textarea id="steps" name="steps" rows="4" class="form-control" required>{{join .Steps ", "}}</textarea>
+            </div>
 
-        <button type="submit">Update Recipe</button>
-    </form>
-    <br>
-    <a href="/">Go Back</a>
+            <div class="form-group">
+                <label for="image_url">Image URL :</label>
+                <input type="url" id="image_url" name="image_url" class="form-control" value="{{.ImageURL}}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Recipe</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -50,6 +50,8 @@ func main() {
 
 	r.GET("/recipes/search", handlers.SearchRecipes)
 
+	r.GET("/recipes/view/:id", handlers.ViewRecipe)
+
 	// Start the server
 	r.Run(":8080")
 }
