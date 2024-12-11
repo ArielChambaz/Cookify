@@ -8,6 +8,10 @@ This project has been done by Felllay Fiorenza Willianto (5025221110) and Ariel 
 
 ---
 
+## Video of the project
+
+https://www.youtube.com/watch?v=Gtwaeeo8I5A
+
 ## Installation
 
 To set up Cookify on your local machine, follow these steps:
